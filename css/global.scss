@@ -1,0 +1,110 @@
+@import "./variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+body {
+  position: relative;
+  background: var(--background);
+
+  &::before,
+  &::after {
+    content: "";
+
+    position: absolute;
+    border-radius: 50%;
+
+    background: var(--button);
+    z-index: -1;
+    filter: blur(150px);
+
+    transition: filter 0.3s ease;
+  }
+
+  &::after {
+    top: 0;
+    right: 0;
+  }
+
+  &::before {
+    bottom: 0;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+
+  background: transparent;
+  border: 0;
+}
+
+.container-get-my-coffee {
+  max-height: 0;
+  visibility: hidden;
+
+  button {
+    background: transparent;
+    border: 1px solid var(--button);
+    border-radius: 6px;
+
+    width: 172px;
+    padding: 11px 0;
+
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-color);
+
+    transition: background 0.3s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:hover {
+      background: var(--button);
+    }
+  }
+
+  &.container-get-my-coffee-with-icon {
+    max-height: initial;
+    visibility: visible;
+
+    button::after {
+      content: "";
+
+      width: 14px;
+      height: 14px;
+
+      background: #000 url("../assets/arrow.svg") no-repeat
+        center;
+
+      background-size: contain;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-get-my-coffee {
+    max-height: initial;
+    visibility: visible;
+  }
+
+  body::before,
+  body::after {
+    width: 250px;
+    height: 250px;
+  }
+}

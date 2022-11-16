@@ -1,0 +1,117 @@
+.page-header {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .header-mobile {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 20px;
+
+    .logo {
+      color: transparent;
+
+      width: 172px;
+      height: 32px;
+
+      background: #000 url("../assets/logo-mobile.svg")
+        no-repeat top left;
+
+      background-size: contain;
+    }
+  }
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.3s ease;
+
+  max-height: 0;
+  visibility: hidden;
+  opacity: 0;
+
+  a {
+    display: block;
+    padding: 17px 25px;
+    color: var(--border-menu-mobile);
+
+    text-transform: capitalize;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.2s ease;
+
+    &.active {
+      border-left: 5px solid var(--button);
+    }
+
+    &:first-of-type {
+      border-top: 1px solid var(--border);
+    }
+  }
+}
+
+.visible {
+  max-height: initial;
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  .page-header {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header-mobile {
+      padding: 0;
+
+      .logo {
+        width: 40px;
+        height: 40px;
+
+        background: #000 url("../assets/logo-desktop.svg")
+          no-repeat center;
+
+        background-size: cover;
+      }
+
+      .container-btn-menu {
+        max-height: 0;
+        visibility: hidden;
+      }
+    }
+
+    .navigation {
+      position: initial;
+      max-height: initial;
+      visibility: visible;
+      opacity: 1;
+
+      flex-direction: row;
+      justify-content: center;
+      gap: 1rem;
+
+      a {
+        color: var(--text-color);
+        font-weight: 500;
+        padding: 17px;
+
+        border-bottom: 3px solid transparent;
+
+        &.active {
+          border-left: none;
+        }
+
+        &:hover {
+          border-color: var(--button);
+        }
+
+        &:first-of-type {
+          border-top: 0;
+        }
+      }
+    }
+  }
+}
